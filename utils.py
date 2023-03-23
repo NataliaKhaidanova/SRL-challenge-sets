@@ -15,17 +15,18 @@ def create_pipeline():
     return unmask
 
 
-def save_to_json(examples, labels):
+def save_to_json(examples, labels, outputfile):
     """
     Save examples and gold labels in .json.
     
     :param list examples: lists of example tokens
     :param list labels: gold labels 
+    :param str outputfile: path to output .json file
     :return: None
     """
     for i in range(len(examples)):
         output_dict = {'example': examples[i], 'BIO': labels}
-        with open('Benefactive.json', 'a') as outfile:
+        with open(outputfile, 'a') as outfile:
             json.dump(output_dict, outfile)
             outfile.write('\n')
             
