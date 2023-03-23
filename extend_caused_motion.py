@@ -45,7 +45,8 @@ def generate_examples(examples):
         for prediction in predictions:
             prediction = prediction['sequence'].strip('<s>').strip('</s>')
             prediction = word_tokenize(prediction)
-            generated_examples.append(prediction)
+            if prediction not in generated_examples:
+                generated_examples.append(prediction)
     
     return generated_examples
 
