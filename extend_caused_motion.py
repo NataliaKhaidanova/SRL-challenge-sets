@@ -26,12 +26,12 @@ def extend_examples(examples):
     """
     Extend examples using transformers fill-mask pipeline.
     
-    :param list examples: lists of example tokens
-    :return: extended list of examples
+    :param list examples: lists of examples
+    :return: None
     """
     print('Creating pipeline ...')
-    #unmask = pipeline('fill-mask')
-    #unmask.tokenizer.mask_token
+    unmask = pipeline('fill-mask')
+    unmask.tokenizer.mask_token
     print('Pipeline created.')
     
     generated_examples = []
@@ -46,13 +46,13 @@ def extend_examples(examples):
             prediction = word_tokenize(prediction)
             generated_examples.append(prediction)
             
-    return examples.extend(generated_examples)
-
+    examples.extend(generated_examples)
+    
 def save_to_json(examples, labels):
     """
     Save examples and gold labels in .json:
     
-    :param list extended_examples: extended list of examples (output of extend_examples)
+    :param list examples: extended list of examples 
     :param list labels: gold labels 
     :return: None
     """
@@ -62,9 +62,6 @@ def save_to_json(examples, labels):
             json.dump(output_dict, outfile)
             outfile.write('\n')
             
-#extended_examples = extend_examples(examples)
-#print(extended_examples)
-
 if __name__ == '__main__':
     extend_examples(examples)
     save_to_json(examples, labels)
