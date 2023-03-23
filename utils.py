@@ -1,6 +1,7 @@
 from transformers import pipeline
 import json
 
+
 def create_pipeline():
     """
     Create transformers fill-mask pipeline.
@@ -27,6 +28,7 @@ def save_to_json(examples, labels):
         with open('Benefactive.json', 'a') as outfile:
             json.dump(output_dict, outfile)
             outfile.write('\n')
+            
             
 def delete_duplicates(json_file):
     """
