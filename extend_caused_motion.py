@@ -1,6 +1,6 @@
 from nltk.tokenize import word_tokenize
-from transformers import pipeline
-import json
+import os
+from utils import *
 
 examples = [['The','window','broke','.'],
             ['The','vase','shattered','.'],
@@ -22,18 +22,16 @@ examples = [['The','window','broke','.'],
 
 labels = ['O','B-ARG1','O','O']
 
+
+unmask = create_pipeline()
+
 def generate_examples(examples):
     """
     Extend examples using transformers fill-mask pipeline.
     
     :param list examples: lists of example tokens
     :return: extended list of examples
-    """
-    print('Creating pipeline ...')
-    unmask = pipeline('fill-mask')
-    unmask.tokenizer.mask_token
-    print('Pipeline created.')
-    
+    """    
     generated_examples = []
     
     for example in examples:
@@ -50,19 +48,6 @@ def generate_examples(examples):
     
     return generated_examples
 
-def save_to_json(examples, labels):
-    """
-    Save examples and gold labels in .json:
-    
-    :param list extended_examples: extended list of examples (output of extend_examples)
-    :param list labels: gold labels 
-    :return: None
-    """
-    for i in range(len(examples)):
-        output_dict = {'example': examples[i], 'BIO': labels}
-        with open('Caused_motion.json', 'a') as outfile:
-            json.dump(output_dict, outfile)
-            outfile.write('\n')
 
 if __name__ == '__main__':
     # save unmodified examples
@@ -70,3 +55,9 @@ if __name__ == '__main__':
     generated_examples = generate_examples(examples)
     # append new generated examples
     save_to_json(generated_examples, labels)
+    clean_examples = delete_duplicates('Caused-motion.json')
+    # delete the old file
+    os.remove('Caused-motion.json')
+    # get clean file 
+    save_to_json(clean_examples, labels)
+    print('The file is saved.')
