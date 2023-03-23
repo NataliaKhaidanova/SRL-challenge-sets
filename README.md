@@ -1,2 +1,2 @@
-# SRL-challenge-sets
+# SRL_challenge_sets
 SRL challenge sets
