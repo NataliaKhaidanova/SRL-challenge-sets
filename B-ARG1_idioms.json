@@ -1,0 +1,9 @@
+{"example": ["She", "kicked", "the", "bucket", "."], "BIO": ["B-ARG1", "O", "O", "O", "O"]}
+{"example": ["He", "breathed", "his", "last", "."], "BIO": ["B-ARG1", "O", "O", "O", "O"]}
+{"example": ["John", "bit", "the", "dust", "."], "BIO": ["B-ARG1", "O", "O", "O", "O"]}
+{"example": ["She", "popped", "her", "clogs", "."], "BIO": ["B-ARG1", "O", "O", "O", "O"]}
+{"example": ["Michael", "gave", "a", "start", "."], "BIO": ["B-ARG1", "O", "O", "O", "O"]}
+{"example": ["He", "blew", "his", "top", "."], "BIO": ["B-ARG1", "O", "O", "O", "O"]}
+{"example": ["He", "bit", "the", "bullet", "."], "BIO": ["B-ARG1", "O", "O", "O", "O"]}
+{"example": ["You", "missed", "the", "boat", "."], "BIO": ["B-ARG1", "O", "O", "O", "O"]}
+{"example": ["She", "took", "a", "backseat", "."], "BIO": ["B-ARG1", "O", "O", "O", "O"]}
