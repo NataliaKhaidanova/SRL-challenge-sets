@@ -51,13 +51,13 @@ def generate_examples(examples):
 
 if __name__ == '__main__':
     # save unmodified examples
-    save_to_json(examples, labels)
+    save_to_json(examples, labels, 'Caused-motion.json')
     generated_examples = generate_examples(examples)
     # append new generated examples
-    save_to_json(generated_examples, labels)
+    save_to_json(generated_examples, labels, 'Caused-motion.json')
     clean_examples = delete_duplicates('Caused-motion.json')
     # delete the old file
     os.remove('Caused-motion.json')
     # get clean file 
-    save_to_json(clean_examples, labels)
+    save_to_json(clean_examples, labels, 'Caused-motion.json')
     print('The file is saved.')
