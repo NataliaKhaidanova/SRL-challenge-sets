@@ -2,7 +2,7 @@ def save_to_json(examples, labels):
     """
     Save examples and gold labels in .json.
     
-    :param list examples: examples 
+    :param list examples: lists of example tokens
     :param list labels: gold labels 
     :return: None
     """
