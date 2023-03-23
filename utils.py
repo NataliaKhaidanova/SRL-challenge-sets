@@ -1,3 +1,16 @@
+def create_pipeline():
+    """
+    Create transformers fill-mask pipeline.
+    :return: unmask
+    """
+    print('Creating pipeline ...')
+    unmask = pipeline('fill-mask')
+    unmask.tokenizer.mask_token
+    print('Pipeline created.')
+    
+    return unmask
+
+
 def save_to_json(examples, labels):
     """
     Save examples and gold labels in .json.
