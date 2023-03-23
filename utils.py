@@ -43,7 +43,7 @@ def delete_duplicates(json_file):
         for line in infile.readlines():
             line = line.strip('\n')
             example_information = json.loads(line)
-            example = sentence_information['example']
+            example = example_information['example']
             all_examples.append(example)
             
     for example in all_examples:
