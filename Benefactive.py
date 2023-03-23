@@ -68,3 +68,4 @@ if __name__ == '__main__':
     os.remove('Benefactive.json')
     # get clean file 
     save_to_json(clean_examples, labels)
+    print('The file is saved.')
