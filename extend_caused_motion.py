@@ -60,7 +60,7 @@ def save_to_json(examples, labels):
     """
     for i in range(len(examples)):
         output_dict = {'example': examples[i], 'BIO': labels}
-        with open('Caused-motion.json', 'a') as outfile:
+        with open('Caused_motion.json', 'a') as outfile:
             json.dump(output_dict, outfile)
             outfile.write('\n')
 
