@@ -15,8 +15,8 @@ examples = [['She', 'lent', 'her', 'friend', 'a', 'book', '.'],
 
 labels = ['B-ARG0','O','O','B-ARG2','O','B-ARG1','O']
 
-unmask = create_pipeline()
 
+unmask = create_pipeline()
 
 def generate_examples(examples):
     """
@@ -38,8 +38,7 @@ def generate_examples(examples):
         # get new examples
         for prediction in predictions:
             prediction = prediction['sequence'].strip('<s>').strip('</s>')
-            prediction = word_tokenize(prediction)
-            print(prediction)
+            prediction = word_tokenize(prediction)         
             if prediction not in generated_examples_first_iter:
                 generated_examples_first_iter.append(prediction)
                 
@@ -47,13 +46,11 @@ def generate_examples(examples):
     # mask the sixth word
     for example in generated_examples_first_iter:
         example[5] = '<mask>'
-        example = ' '.join(example[:-1]) + example[-1]
-        print(example)
+        example = ' '.join(example[:-1]) + example[-1]      
         predictions = unmask(example)
         for prediction in predictions:
             prediction = prediction['sequence'].strip('<s>').strip('</s>')
-            prediction = word_tokenize(prediction)
-            print(prediction)
+            prediction = word_tokenize(prediction)            
             if prediction not in generated_examples_second_iter:
                 generated_examples_second_iter.append(prediction)
     
