@@ -3,22 +3,22 @@ from transformers import pipeline
 import json
 
 examples = [['The','window','broke','.'],
-             ['The','vase','shattered','.'],
-             ['The','balloon','burst','.'],
-             ['The','door','opened','.'],
-             ['The','car','stopped', '.'],
-             ['The','glass','cracked','.'],
-             ['The','bridge','collapsed','.'],
-             ['The','boat','sank','.'],
-             ['The','computer','crashed','.'],
-             ['The','ice','melted','.'],
-             ['The','knife','dropped','.'],
-             ['The','airplane','crashed','.'],
-             ['The','rock','rolled','.'],
-             ['The','oil','spilled','.'],
-             ['The','satellite','launched','.'],
-             ['The','skateboard','rolled','.'],
-             ['The', 'spaceship', 'landed', '.']]
+            ['The','vase','shattered','.'],
+            ['The','balloon','burst','.'],
+            ['The','door','opened','.'],
+            ['The','car','stopped', '.'],
+            ['The','glass','cracked','.'],
+            ['The','bridge','collapsed','.'],
+            ['The','boat','sank','.'],
+            ['The','computer','crashed','.'],
+            ['The','ice','melted','.'],
+            ['The','knife','dropped','.'],
+            ['The','airplane','crashed','.'],
+            ['The','rock','rolled','.'],
+            ['The','oil','spilled','.'],
+            ['The','satellite','launched','.'],
+            ['The','skateboard','rolled','.'],
+            ['The', 'spaceship', 'landed', '.']]
 
 labels = ['O','B-ARG1','O','O']
 
