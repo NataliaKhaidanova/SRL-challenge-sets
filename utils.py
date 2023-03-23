@@ -1,3 +1,6 @@
+from transformers import pipeline
+import json
+
 def create_pipeline():
     """
     Create transformers fill-mask pipeline.
