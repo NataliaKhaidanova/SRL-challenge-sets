@@ -2,10 +2,10 @@ import json
 
 
 polysemy_examples = [['I', 'saw', 'a', 'kid', 'with', 'a', 'cat', '.'],
-                     ['I', 'saw', 'her', 'duck', '.']]             
+                     ['He', 'saw', 'a', 'man', 'with', 'binoculars', '.']]             
                                          
-polysemy_labels = [['ARG0', 'O', 'O', 'ARG1', 'O', 'O', 'ARG1', 'O'],
-                   ['ARG0', 'O', 'ARG1', 'MNR', 'O']]
+polysemy_labels = [['B-ARG0', 'O', 'O', 'B-ARG1', 'O', 'O', 'B-ARG1', 'O'],
+                   ['B-ARG0', 'O', 'O', 'B-ARG1', 'O', 'B-ARG2', 'O']]
 
 
 idioms_examples = [['She', 'kicked', 'the', 'bucket', '.'], # to die 1
@@ -41,51 +41,51 @@ idioms_examples = [['She', 'kicked', 'the', 'bucket', '.'], # to die 1
                    ['She', 'took', 'a', 'backseat', '.'], # be given a less important position or role 31
                    ['He', 'bared', 'his', 'soul', '.']] # to reveal one's most private thoughts 32
                    
-idioms_labels = [['B-ARG1','O','O','O','O'], # 1
-                 ['B-ARG1','O','O','O','O'], # 2
-                 ['B-ARG1','O','O','O','O'], # 3
-                 ['B-ARG1','O','O','O','O'], # 4
-                 ['B-ARG0','O','O','O','O'], # 5
-                 ['B-ARG0','O','O','O','O'], # 6
-                 ['B-ARG0','O','O','O','O'], # 7
-                 ['B-ARG0','O','O','O','O'], # 8
-                 ['B-ARG0','O','O','O','O'], # 9
-                 ['B-ARG0','O','O','O','O'], # 10
-                 ['B-ARG0','O','O','O','O'], # 11
-                 ['B-ARG0','O','O','O','O'], # 12
-                 ['B-ARG1','O','O','O','O'], # 13
-                 ['B-ARG1','O','O','O','O'], # 14
-                 ['B-ARG0','O','O','O','O'], # 15
-                 ['B-ARG1','O','O','O','O'], # 16
-                 ['B-ARG0','O','O','O','O'], # 17
-                 ['B-ARG0','O','O','O','O'], # 18
-                 ['B-ARG0','O','O','O','O'], # 19
-                 ['B-ARG0','O','O','O','O'], # 20
-                 ['B-ARG0','O','O','O','O'], # 21
-                 ['B-ARG0','O','O','O','O'], # 22
-                 ['B-ARG0','O','O','O','O'], # 23
-                 ['B-ARG0','O','O','O','O'], # 24
-                 ['B-ARG0','O','O','O','O'], # 25
-                 ['B-ARG0','O','O','O','O'], # 26
-                 ['B-ARG1','O','O','O','O'], # 27
-                 ['B-ARG0','O','O','O','O'], # 28
-                 ['B-ARG0','O','O','O','O'], # 29
-                 ['B-ARG0','O','O','O','O'], # 30
-                 ['B-ARG1','O','O','O','O'], # 31
-                 ['B-ARG0','O','O','O','O']] # 32
+idioms_labels = [['B-ARG1', 'O', 'O', 'O', 'O'], # 1
+                 ['B-ARG1', 'O', 'O', 'O', 'O'], # 2
+                 ['B-ARG1', 'O', 'O', 'O', 'O'], # 3
+                 ['B-ARG1', 'O', 'O', 'O', 'O'], # 4
+                 ['B-ARG0', 'O', 'O', 'O', 'O'], # 5
+                 ['B-ARG0', 'O', 'O', 'O', 'O'], # 6
+                 ['B-ARG0', 'O', 'O', 'O', 'O'], # 7
+                 ['B-ARG0', 'O', 'O', 'O', 'O'], # 8
+                 ['B-ARG0', 'O', 'O', 'O', 'O'], # 9
+                 ['B-ARG0', 'O', 'O', 'O', 'O'], # 10
+                 ['B-ARG0', 'O', 'O', 'O', 'O'], # 11
+                 ['B-ARG0', 'O', 'O', 'O', 'O'], # 12
+                 ['B-ARG1', 'O', 'O', 'O', 'O'], # 13
+                 ['B-ARG1', 'O', 'O', 'O', 'O'], # 14
+                 ['B-ARG0', 'O', 'O', 'O', 'O'], # 15
+                 ['B-ARG1', 'O', 'O', 'O', 'O'], # 16
+                 ['B-ARG0', 'O', 'O', 'O', 'O'], # 17
+                 ['B-ARG0', 'O', 'O', 'O', 'O'], # 18
+                 ['B-ARG0', 'O', 'O', 'O', 'O'], # 19
+                 ['B-ARG0', 'O', 'O', 'O', 'O'], # 20
+                 ['B-ARG0', 'O', 'O', 'O', 'O'], # 21
+                 ['B-ARG0', 'O', 'O', 'O', 'O'], # 22
+                 ['B-ARG0', 'O', 'O', 'O', 'O'], # 23
+                 ['B-ARG0', 'O', 'O', 'O', 'O'], # 24
+                 ['B-ARG0', 'O', 'O', 'O', 'O'], # 25
+                 ['B-ARG0', 'O', 'O', 'O', 'O'], # 26
+                 ['B-ARG1', 'O', 'O', 'O', 'O'], # 27
+                 ['B-ARG0', 'O', 'O', 'O', 'O'], # 28
+                 ['B-ARG0', 'O', 'O', 'O', 'O'], # 29
+                 ['B-ARG0', 'O', 'O', 'O', 'O'], # 30
+                 ['B-ARG1', 'O', 'O', 'O', 'O'], # 31
+                 ['B-ARG0', 'O', 'O', 'O', 'O']] # 32
                      
                      
 if __name__ == '__main__':
     # Save polysemy examples
     for i in range(len(polysemy_examples)):
         polysemy_output_dict = {'example': polysemy_examples[i], 'BIO': polysemy_labels[i]}
-            with open('Polysemy.json', 'a') as outfile:
-                json.dump(polysemy_output_dict, outfile)
-                outfile.write('\n')
+        with open('Polysemy.json', 'a') as outfile:
+            json.dump(polysemy_output_dict, outfile)
+            outfile.write('\n')
     # Save idioms 
     for i in range(len(idioms_examples)):
         # Save B-ARG0 idioms 
-        if labels[i][0] == 'B-ARG0':
+        if idioms_labels[i][0] == 'B-ARG0':
             B_ARG0_output_dict = {'example': idioms_examples[i], 'BIO': idioms_labels[i]}
             with open('B-ARG0 idioms.json', 'a') as outfile:
                 json.dump(B_ARG0_output_dict, outfile)
