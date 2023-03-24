@@ -99,7 +99,7 @@ if __name__ == '__main__':
     # Save caused-motion examples
     for i in range(len(caused_motion_examples)):
         caused_motion_output_dict = {'example': caused_motion_labels[i], 'BIO': caused_motion_labels[i]}
-        with open('Polysemy.json', 'a') as outfile:
+        with open('Caused-motion.json', 'a') as outfile:
             json.dump(caused_motion_output_dict, outfile)
             outfile.write('\n')
     # Save polysemy examples
