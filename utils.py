@@ -1,18 +1,44 @@
 from transformers import pipeline
+from nltk.tokenize import word_tokenize
 import json
 
 
 def create_pipeline():
     """
     Create transformers fill-mask pipeline.
-    :return: unmask
+    :return: transformers.pipelines.fill_mask.FillMaskPipeline
     """
     print('Creating pipeline ...')
     unmask = pipeline('fill-mask')
     unmask.tokenizer.mask_token
-    print('Pipeline created.')
     
     return unmask
+    
+    
+def generate_examples(examples, unmask, mask_index):
+    """
+    Extend examples using transformers fill-mask pipeline.
+
+    :param list examples: lists of example tokens
+    :param transformers.pipelines.fill_mask.FillMaskPipeline unmask: transformers fill-mask pipeline
+    :param int mask_index: index of the token to mask
+    :return: extended list of examples
+    """
+    generated_examples = []
+
+    for example in examples:
+        # mask n token
+        example[mask_index] = '<mask>'
+        example = ' '.join(example[:-1]) + example[-1]
+        predictions = unmask(example)
+        # get new examples
+        for prediction in predictions:
+            prediction = prediction['sequence'].strip('<s>').strip('</s>')
+            prediction = word_tokenize(prediction)
+            if prediction not in generated_examples:
+                generated_examples.append(prediction)
+                
+    return generated_examples
 
 
 def save_to_json(examples, labels, outputfile):
@@ -33,7 +59,7 @@ def save_to_json(examples, labels, outputfile):
             
 def delete_duplicates(json_file):
     """
-    Read in .json, get none-duplicating examples 
+    Read in .json, get none-duplicating examples.
     
     :param str json_file: path to .json file
     :return: a list with none-duplicating examples
