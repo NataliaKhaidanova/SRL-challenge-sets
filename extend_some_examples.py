@@ -94,11 +94,10 @@ if __name__ == '__main__':
     print('Extending Instrument+Theme examples ...')
     # save unmodified examples in .json
     save_to_json(instrument_theme_examples, instrument_theme_labels, 'Instrument+Theme.json')
-    # mask the 3rd and 5th token, extend examples 
-    instrument_theme_generated_examples_first_iter = generate_examples(instrument_theme_examples, unmask, 4)
-    instrument_theme_generated_examples_second_iter = generate_examples(instrument_theme_generated_examples_first_iter, unmask, 2)
+    # mask the 3rd token, extend examples 
+    instrument_theme_generated_examples = generate_examples(instrument_theme_generated_examples_first_iter, unmask, 2)
     # append new generated examples to .json 
-    save_to_json(instrument_theme_generated_examples_second_iter, instrument_theme_labels, 'Instrument+Theme.json')
+    save_to_json(instrument_theme_generated_examples, instrument_theme_labels, 'Instrument+Theme.json')
     # clean examples from the ones that duplicate human examples 
     instrument_theme_clean_examples = delete_duplicates('Instrument+Theme.json')
     # delete the old .json file
