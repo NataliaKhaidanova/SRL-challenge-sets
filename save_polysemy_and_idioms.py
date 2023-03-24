@@ -1,5 +1,25 @@
 import json
 
+caused_motion_examples = [['The', 'window', 'broke', '.'],
+                          ['The', 'vase', 'shattered', '.'],
+                          ['The', 'balloon', 'burst', '.'],
+                          ['The', 'door', 'opened', '.'],
+                          ['The','car','stopped', '.'],
+                          ['The', 'glass', 'cracked', '.'],
+                          ['The', 'bridge', 'collapsed', '.'],
+                          ['The', 'boat', 'sank', '.'],
+                          ['The', 'computer', 'crashed', '.'],
+                          ['The', 'ice', 'melted', '.'],
+                          ['The', 'knife', 'dropped', '.'],
+                          ['The', 'airplane', 'crashed', '.'],
+                          ['The', 'rock', 'rolled', '.'],
+                          ['The', 'oil', 'spilled', '.'],
+                          ['The', 'satellite', 'launched', '.'],
+                          ['The', 'skateboard', 'rolled', '.'],
+                          ['The', 'spaceship', 'landed', '.']]
+
+caused_motion_labels = ['O','B-ARG1','O','O']
+
 
 polysemy_examples = [['I', 'saw', 'a', 'kid', 'with', 'a', 'cat', '.'],
                      ['He', 'saw', 'a', 'man', 'with', 'binoculars', '.']]             
@@ -76,6 +96,12 @@ idioms_labels = [['B-ARG1', 'O', 'O', 'O', 'O'], # 1
                      
                      
 if __name__ == '__main__':
+    # Save caused-motion examples
+    for i in range(len(caused_motion_examples)):
+        caused_motion_output_dict = {'example': caused_motion_labels[i], 'BIO': caused_motion_labels[i]}
+        with open('Polysemy.json', 'a') as outfile:
+            json.dump(caused_motion_output_dict, outfile)
+            outfile.write('\n')
     # Save polysemy examples
     for i in range(len(polysemy_examples)):
         polysemy_output_dict = {'example': polysemy_examples[i], 'BIO': polysemy_labels[i]}
