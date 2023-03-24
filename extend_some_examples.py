@@ -168,9 +168,8 @@ if __name__ == '__main__':
     print('Extending left-out verb examples ...')
     save_to_json(left_out_verb_examples, left_out_verb_labels, 'Left-out verb.json')
     # mask the 2nd token
-    left_out_verb_generated_examples_first_iter = generate_examples(left_out_verb_examples, unmask, 1)
-    left_out_verb_generated_examples_second_iter = generate_examples(left_out_verb_generated_examples_first_iter, unmask, 3)
-    save_to_json(left_out_verb_generated_examples_second_iter, left_out_verb_labels, 'Left-out verb.json')
+    left_out_verb_generated_examples = generate_examples(left_out_verb_examples, unmask, 1)
+    save_to_json(left_out_verb_generated_examples, left_out_verb_labels, 'Left-out verb.json')
     left_out_verb_clean_examples = delete_duplicates('Left-out verb.json')
     os.remove('Left-out verb.json')
     save_to_json(left_out_verb_clean_examples, left_out_verb_labels, 'Left-out verb.json')
