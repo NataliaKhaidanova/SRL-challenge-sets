@@ -1,0 +1,2 @@
+{"example": ["I", "saw", "a", "kid", "with", "a", "cat", "."], "BIO": ["B-ARG0", "O", "O", "B-ARG1", "O", "O", "B-ARG1", "O"]}
+{"example": ["He", "saw", "a", "man", "with", "binoculars", "."], "BIO": ["B-ARG0", "O", "O", "B-ARG1", "O", "B-ARG2", "O"]}
