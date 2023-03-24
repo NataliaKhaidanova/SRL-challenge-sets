@@ -78,20 +78,20 @@ passive_voice_examples = [['The', 'car', 'was', 'repaired', 'by', 'the', 'mechan
 passive_voice_labels = ['O','B-ARG1','O','O','O','O','B-ARG0','O']
 
 
-left_out_verb_examples = [['John', 'likes', 'coffee', ',', 'and', 'Mary', 'tea', '.'],
-                          ['Sarah', 'enjoys', 'swimming', ',', 'and', 'Mark', 'running', '.'],
-                          ['She', 'prefers', 'books', ',', 'and', 'he', 'movies', '.'],
-                          ['He', 'loves', 'hiking', ',', 'and', 'she', 'camping', '.'],
-                          ['He', 'enjoys', 'classics', ',', 'and', 'she', 'jazz', '.'],
-                          ['John', 'plays', 'basketball', ',', 'and', 'Bill', 'soccer', '.'],
-                          ['They', 'enjoy', 'skiing', ',', 'and', 'we', 'snowboarding', '.'],
-                          ['He', 'drinks', 'beer', ',', 'and', 'she', 'wine', '.'],
-                          ['You', 'study', 'math', ',', 'and', 'I', 'physics', '.'],
-                          ['I', 'prefer', 'dogs', ',', 'and', 'Emma', 'cats', '.'],
-                          ['He', 'enjoys', 'gardening', ',', 'and', 'she', 'cooking', '.'],
-                          ['She', 'likes', 'dancing', ',', 'and', 'he', 'singing', '.']]
+left_out_predicate_examples = [['John', 'likes', 'coffee', ',', 'and', 'Mary', 'tea', '.'],
+                               ['Sarah', 'enjoys', 'swimming', ',', 'and', 'Mark', 'running', '.'],
+                               ['She', 'prefers', 'books', ',', 'and', 'he', 'movies', '.'],
+                               ['He', 'loves', 'hiking', ',', 'and', 'she', 'camping', '.'],
+                               ['He', 'enjoys', 'classics', ',', 'and', 'she', 'jazz', '.'],
+                               ['John', 'plays', 'basketball', ',', 'and', 'Bill', 'soccer', '.'],
+                               ['They', 'enjoy', 'skiing', ',', 'and', 'we', 'snowboarding', '.'],
+                               ['He', 'drinks', 'beer', ',', 'and', 'she', 'wine', '.'],
+                               ['You', 'study', 'math', ',', 'and', 'I', 'physics', '.'],
+                               ['I', 'prefer', 'dogs', ',', 'and', 'Emma', 'cats', '.'],
+                               ['He', 'enjoys', 'gardening', ',', 'and', 'she', 'cooking', '.'],
+                               ['She', 'likes', 'dancing', ',', 'and', 'he', 'singing', '.']]
                            
-left_out_verb_labels = ['B-ARG0','O','B-ARG1','O','O','B-ARG0','B-ARG1','O']
+left_out_predicate_labels = ['B-ARG0','O','B-ARG1','O','O','B-ARG0','B-ARG1','O']
 
 
 left_out_theme_examples = [['John', 'enjoys', 'swimming', ',', 'and', 'so', 'does', 'his', 'brother', '.'],
@@ -164,16 +164,16 @@ if __name__ == '__main__':
     save_to_json(passive_voice_clean_examples, passive_voice_labels, 'Passive voice.json')
     print('Passive voice.json is saved')
     
-    ### Left-out verb:
-    print('Extending left-out verb examples ...')
-    save_to_json(left_out_verb_examples, left_out_verb_labels, 'Left-out verb.json')
+    ### Left-out predicate:
+    print('Extending left-out predicate examples ...')
+    save_to_json(left_out_predicate_examples, left_out_predicate_labels, 'Left-out predicate.json')
     # mask the 2nd token
-    left_out_verb_generated_examples = generate_examples(left_out_verb_examples, unmask, 1)
-    save_to_json(left_out_verb_generated_examples, left_out_verb_labels, 'Left-out verb.json')
-    left_out_verb_clean_examples = delete_duplicates('Left-out verb.json')
-    os.remove('Left-out verb.json')
-    save_to_json(left_out_verb_clean_examples, left_out_verb_labels, 'Left-out verb.json')
-    print('Left-out verb.json is saved')
+    left_out_predicate_generated_examples = generate_examples(left_out_predicate_examples, unmask, 1)
+    save_to_json(left_out_predicate_generated_examples, left_out_predicate_labels, 'Left-out predicate.json')
+    left_out_predicate_clean_examples = delete_duplicates('Left-out predicate.json')
+    os.remove('Left-out predicate.json')
+    save_to_json(left_out_verb_clean_examples, left_out_verb_labels, 'Left-out predicate.json')
+    print('Left-out predicate.json is saved')
     
     ### Left-out Theme:
     print('Extending left-out Theme examples ...')
