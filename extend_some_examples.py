@@ -24,27 +24,6 @@ instrument_theme_examples = [['The', 'ball', 'broke', 'the', 'window', '.'],
 instrument_theme_labels = ['O','B-ARG2','O','O','B-ARG1','O']
 
 
-caused_motion_examples = [['The', 'window', 'broke', '.'],
-                          ['The', 'vase', 'shattered', '.'],
-                          ['The', 'balloon', 'burst', '.'],
-                          ['The', 'door', 'opened', '.'],
-                          ['The','car','stopped', '.'],
-                          ['The', 'glass', 'cracked', '.'],
-                          ['The', 'bridge', 'collapsed', '.'],
-                          ['The', 'boat', 'sank', '.'],
-                          ['The', 'computer', 'crashed', '.'],
-                          ['The', 'ice', 'melted', '.'],
-                          ['The', 'knife', 'dropped', '.'],
-                          ['The', 'airplane', 'crashed', '.'],
-                          ['The', 'rock', 'rolled', '.'],
-                          ['The', 'oil', 'spilled', '.'],
-                          ['The', 'satellite', 'launched', '.'],
-                          ['The', 'skateboard', 'rolled', '.'],
-                          ['The', 'spaceship', 'landed', '.']]
-
-caused_motion_labels = ['O','B-ARG1','O','O']
-
-
 benefactive_examples = [['She', 'lent', 'her', 'friend', 'a', 'book', '.'],
                         ['He', 'showed', 'his', 'wife', 'a', 'sunset', '.'],
                         ['She', 'sent', 'her', 'mother', 'a', 'bouquet', '.'],
@@ -128,18 +107,6 @@ if __name__ == '__main__':
     save_to_json(instrument_theme_clean_examples, instrument_theme_labels, 'Instrument+Theme.json')
     print('Instrument+Theme.json is saved')
                            
-    ### Caused-motion:
-    print('Extending caused-motion examples ...')
-    save_to_json(caused_motion_examples, caused_motion_labels, 'Caused-motion.json')
-    # mask the 2nd and 3rd token
-    caused_motion_generated_examples_first_iter = generate_examples(caused_motion_examples, unmask, 1)
-    caused_motion_generated_examples_second_iter = generate_examples(caused_motion_generated_examples_first_iter, unmask, 2)
-    save_to_json(caused_motion_generated_examples_second_iter, caused_motion_labels, 'Caused-motion.json')
-    caused_motion_clean_examples = delete_duplicates('Caused-motion.json')
-    os.remove('Caused-motion.json')
-    save_to_json(caused_motion_clean_examples, caused_motion_labels, 'Caused-motion.json')
-    print('Caused-motion.json is saved')
-    
     ### Benefactive:
     print('Extending benefactive examples ...')
     save_to_json(benefactive_examples, benefactive_labels, 'Benefactive.json')
