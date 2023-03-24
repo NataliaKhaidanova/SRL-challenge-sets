@@ -98,16 +98,18 @@ idioms_labels = [['B-ARG1', 'O', 'O', 'O', 'O'], # 1
 if __name__ == '__main__':
     # Save caused-motion examples
     for i in range(len(caused_motion_examples)):
-        caused_motion_output_dict = {'example': caused_motion_labels[i], 'BIO': caused_motion_labels[i]}
+        caused_motion_output_dict = {'example': caused_motion_examples[i], 'BIO': caused_motion_labels}
         with open('Caused-motion.json', 'a') as outfile:
             json.dump(caused_motion_output_dict, outfile)
             outfile.write('\n')
+    print('Caused-motion.json is saved')
     # Save polysemy examples
     for i in range(len(polysemy_examples)):
         polysemy_output_dict = {'example': polysemy_examples[i], 'BIO': polysemy_labels[i]}
         with open('Polysemy.json', 'a') as outfile:
             json.dump(polysemy_output_dict, outfile)
             outfile.write('\n')
+    print('Polysemy.json is saved')
     # Save idioms 
     for i in range(len(idioms_examples)):
         # Save B-ARG0 idioms 
@@ -116,9 +118,11 @@ if __name__ == '__main__':
             with open('B-ARG0 idioms.json', 'a') as outfile:
                 json.dump(B_ARG0_output_dict, outfile)
                 outfile.write('\n')
+        print('B-ARG0 idioms.json is saved')
         # Save B-ARG1 idioms 
         else:
             B_ARG1_output_dict = {'example': idioms_examples[i], 'BIO': idioms_labels[i]}
             with open('B-ARG1 idioms.json', 'a') as outfile:
                 json.dump(B_ARG1_output_dict, outfile)
                 outfile.write('\n')
+        print('B-ARG1 idioms.json is saved')
