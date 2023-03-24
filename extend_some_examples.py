@@ -78,20 +78,20 @@ passive_voice_examples = [['The', 'car', 'was', 'repaired', 'by', 'the', 'mechan
 passive_voice_labels = ['O','B-ARG1','O','O','O','O','B-ARG0','O']
 
 
-left_out_verb_examples = [['John', 'likes', 'coffee', ',', 'and', 'Mary', ',', 'tea', '.'],
-                          ['Sarah', 'enjoys', 'swimming', ',', 'and', 'Mark', ',', 'running', '.'],
-                          ['She', 'prefers', 'books', ',', 'and', 'he', ',', 'movies', '.'],
-                          ['He', 'loves', 'hiking', ',', 'and', 'she', ',', 'camping', '.'],
-                          ['He', 'enjoys', 'classical', 'music', ',', 'and', 'she', ',', 'jazz', '.'],
-                          ['John', 'plays', 'basketball', ',', 'and', 'Bill', ',', 'soccer', '.'],
-                          ['They', 'enjoy', 'skiing', ',', 'and', 'we', ',', 'snowboarding', '.'],
-                          ['He', 'drinks', 'beer', ',', 'and', 'she', ',', 'wine', '.'],
-                          ['You', 'study', 'math', ',', 'and', 'I', ',', 'physics', '.'],
-                          ['I', 'prefer', 'dogs', ',', 'and', 'Emma', ',', 'cats', '.'],
-                          ['He', 'enjoys', 'gardening', ',', 'and', 'she', ',', 'cooking', '.'],
-                          ['She', 'likes', 'dancing', ',', 'and', 'he', ',', 'singing', '.']]
+left_out_verb_examples = [['John', 'likes', 'coffee', ',', 'and', 'Mary', 'tea', '.'],
+                          ['Sarah', 'enjoys', 'swimming', ',', 'and', 'Mark', 'running', '.'],
+                          ['She', 'prefers', 'books', ',', 'and', 'he', 'movies', '.'],
+                          ['He', 'loves', 'hiking', ',', 'and', 'she', 'camping', '.'],
+                          ['He', 'enjoys', 'classical', 'music', ',', 'and', 'she', 'jazz', '.'],
+                          ['John', 'plays', 'basketball', ',', 'and', 'Bill', 'soccer', '.'],
+                          ['They', 'enjoy', 'skiing', ',', 'and', 'we', 'snowboarding', '.'],
+                          ['He', 'drinks', 'beer', ',', 'and', 'she', 'wine', '.'],
+                          ['You', 'study', 'math', ',', 'and', 'I', 'physics', '.'],
+                          ['I', 'prefer', 'dogs', ',', 'and', 'Emma', 'cats', '.'],
+                          ['He', 'enjoys', 'gardening', ',', 'and', 'she', 'cooking', '.'],
+                          ['She', 'likes', 'dancing', ',', 'and', 'he', 'singing', '.']]
                            
-left_out_verb_labels = ['B-ARG0','O','B-ARG1','O','O','B-ARG0','O','B-ARG1','O']
+left_out_verb_labels = ['B-ARG0','O','B-ARG1','O','O','B-ARG0','B-ARG1','O']
 
 
 left_out_theme_examples = [['John', 'enjoys', 'swimming', ',', 'and', 'so', 'does', 'his', 'brother', '.'],
