@@ -1,0 +1,17 @@
+{"example": ["The", "window", "broke", "."], "BIO": ["O", "B-ARG1", "O", "O"]}
+{"example": ["The", "vase", "shattered", "."], "BIO": ["O", "B-ARG1", "O", "O"]}
+{"example": ["The", "balloon", "burst", "."], "BIO": ["O", "B-ARG1", "O", "O"]}
+{"example": ["The", "door", "opened", "."], "BIO": ["O", "B-ARG1", "O", "O"]}
+{"example": ["The", "car", "stopped", "."], "BIO": ["O", "B-ARG1", "O", "O"]}
+{"example": ["The", "glass", "cracked", "."], "BIO": ["O", "B-ARG1", "O", "O"]}
+{"example": ["The", "bridge", "collapsed", "."], "BIO": ["O", "B-ARG1", "O", "O"]}
+{"example": ["The", "boat", "sank", "."], "BIO": ["O", "B-ARG1", "O", "O"]}
+{"example": ["The", "computer", "crashed", "."], "BIO": ["O", "B-ARG1", "O", "O"]}
+{"example": ["The", "ice", "melted", "."], "BIO": ["O", "B-ARG1", "O", "O"]}
+{"example": ["The", "knife", "dropped", "."], "BIO": ["O", "B-ARG1", "O", "O"]}
+{"example": ["The", "airplane", "crashed", "."], "BIO": ["O", "B-ARG1", "O", "O"]}
+{"example": ["The", "rock", "rolled", "."], "BIO": ["O", "B-ARG1", "O", "O"]}
+{"example": ["The", "oil", "spilled", "."], "BIO": ["O", "B-ARG1", "O", "O"]}
+{"example": ["The", "satellite", "launched", "."], "BIO": ["O", "B-ARG1", "O", "O"]}
+{"example": ["The", "skateboard", "rolled", "."], "BIO": ["O", "B-ARG1", "O", "O"]}
+{"example": ["The", "spaceship", "landed", "."], "BIO": ["O", "B-ARG1", "O", "O"]}
