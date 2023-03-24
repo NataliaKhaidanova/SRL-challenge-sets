@@ -76,23 +76,23 @@ idioms_labels = [['B-ARG1','O','O','O','O'], # 1
                      
                      
 if __name__ == '__main__':
-  # Save polysemy examples
-  for i in range(len(polysemy_examples)):
-      polysemy_output_dict = {'example': polysemy_examples[i], 'BIO': polysemy_labels[i]}
-          with open('Polysemy.json', 'a') as outfile:
-              json.dump(polysemy_output_dict, outfile)
-              outfile.write('\n')
-  # Save idioms 
-  for i in range(len(idioms_examples)):
-      # Save B-ARG0 idioms 
-      if labels[i][0] == 'B-ARG0':
-          B_ARG0_output_dict = {'example': idioms_examples[i], 'BIO': idioms_labels[i]}
-          with open('B-ARG0 idioms.json', 'a') as outfile:
-              json.dump(B_ARG0_output_dict, outfile)
-              outfile.write('\n')
-      # Save B-ARG1 idioms 
-      else:
-          B_ARG1_output_dict = {'example': idioms_examples[i], 'BIO': idioms_labels[i]}
-          with open('B-ARG1 idioms.json', 'a') as outfile:
-              json.dump(B_ARG1_output_dict, outfile)
-              outfile.write('\n')
+    # Save polysemy examples
+    for i in range(len(polysemy_examples)):
+        polysemy_output_dict = {'example': polysemy_examples[i], 'BIO': polysemy_labels[i]}
+            with open('Polysemy.json', 'a') as outfile:
+                json.dump(polysemy_output_dict, outfile)
+                outfile.write('\n')
+    # Save idioms 
+    for i in range(len(idioms_examples)):
+        # Save B-ARG0 idioms 
+        if labels[i][0] == 'B-ARG0':
+            B_ARG0_output_dict = {'example': idioms_examples[i], 'BIO': idioms_labels[i]}
+            with open('B-ARG0 idioms.json', 'a') as outfile:
+                json.dump(B_ARG0_output_dict, outfile)
+                outfile.write('\n')
+        # Save B-ARG1 idioms 
+        else:
+            B_ARG1_output_dict = {'example': idioms_examples[i], 'BIO': idioms_labels[i]}
+            with open('B-ARG1 idioms.json', 'a') as outfile:
+                json.dump(B_ARG1_output_dict, outfile)
+                outfile.write('\n')
