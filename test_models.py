@@ -1,5 +1,6 @@
 from allennlp.predictors.predictor import Predictor
 import allennlp_models.tagging
+import os
 import json
 
 
@@ -92,7 +93,7 @@ def test_models(path, allenbert, allenbilstm):
                     y_test.append(label)
                     
                 # allenBERT and allenBiLSTM  
-                example = example_information['example']
+                example = example_info['example']
                 example = ' '.join(example[:-1]) + example[-1]
                 try:
                     allenbert_pred = allenbert.predict(example)['verbs'][0]['tags']
@@ -110,9 +111,9 @@ def test_models(path, allenbert, allenbilstm):
                     
                 #save_pred_to_json(example, gold, pred, f'pred_{file}')
     
-        allenbert_errors = get_errors(y_test, allenbert_y_pred)
-        allenbilstm_errors = get_errors(y_test, allenbilstm_y_pred)
+        allenbert_errors = get_nr_errors(y_test, allenbert_y_pred)
+        allenbilstm_errors = get_nr_errors(y_test, allenbilstm_y_pred)
 
-        print(f'allenBERT error rate for {file}: {round(((allenbert_errors/len(y_test))*100), 1)}')
-        print(f'allenBiLSTM error rate for {file}: {round(((allenbilstm_errors/len(y_test))*100), 1)}')
+        print(f'allenBERT error rate for {filename}: {round(((allenbert_errors/len(y_test))*100), 1)}')
+        print(f'allenBiLSTM error rate for {filename}: {round(((allenbilstm_errors/len(y_test))*100), 1)}')
         print('-----------------------------')
