@@ -2,8 +2,9 @@ from allennlp.predictors.predictor import Predictor
 import allennlp_models.tagging
 import json
 
-bert = Predictor.from_path('https://storage.googleapis.com/allennlp-public-models/structured-prediction-srl-bert.2020.12.15.tar.gz')
-bilstm = Predictor.from_path('https://storage.googleapis.com/allennlp-public-models/openie-model.2020.03.26.tar.gz')
+
+allenbert = Predictor.from_path('https://storage.googleapis.com/allennlp-public-models/structured-prediction-srl-bert.2020.12.15.tar.gz')
+allenbilstm = Predictor.from_path('https://storage.googleapis.com/allennlp-public-models/openie-model.2020.03.26.tar.gz')
 
 
 def clean_gold_labels(filename, gold):
@@ -64,10 +65,16 @@ def get_nr_errors(y_test, y_pred):
     return len(errors)
   
   
-def test_models(path):
+def test_models(path, allenbert, allenbilstm):
   """
-  Test allenBERT, allenBiLSTM pretrained models on ,json test sets,
-  Save example, gold labels, predictions as .json for each test file 
+  Test allenBERT, allenBiLSTM pretrained models on .json test files,
+  get error rate for each model for each test file,
+  save example, gold labels, all models' predictions as .json for each test file.
+  
+  :param str path: directory to the folder with .json test files 
+  :param allenbert: pretrained structured-prediction-srl-bert model
+  :param allenbert: pretrained structured-prediction-srl model
+  :return: None
   """
   for filename in os.listdir(path):
     if filename.endswith('.json'):
@@ -87,8 +94,8 @@ def test_models(path):
                 # allenBERT and allenBiLSTM  
                 example = ' '.join(example_info['example'][:-1]) + example[-1]
                 try:
-                    allenbert_pred = bert.predict(example)['verbs'][0]['tags']
-                    allenbilstm_pred = bilstm.predict(example)['verbs'][0]['tags']
+                    allenbert_pred = allenbert.predict(example)['verbs'][0]['tags']
+                    allenbilstm_pred = allenbilstm.predict(example)['verbs'][0]['tags']
                 except IndexError:
                     allenbert_pred = ['O'] * len(gold)
                     allenbilstm_pred = ['O'] * len(gold)
