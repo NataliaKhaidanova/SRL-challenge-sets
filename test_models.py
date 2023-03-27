@@ -125,5 +125,5 @@ def test_models(path, allenbert, allenbilstm):
         print('-----------------------------')
 
         
- if __name__ == '__main__':
+if __name__ == '__main__':
     test_models(r'Data', allenbert, allenbilstm)
