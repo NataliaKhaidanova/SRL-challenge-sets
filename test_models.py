@@ -80,7 +80,7 @@ def test_models(path, allenbert, allenbilstm):
   for filename in os.listdir(path):
     if filename.endswith('.json'):
         
-        y_test, allenbert_y_pred, allenbilstm_y_pred = [], [], []
+        y_test, allenbert_y_pred, allenbilstm_y_pred, allenbert_correct, allenbilstm_correct = [], [], [], [], []
                 
         with open(f'{path}/{filename}') as infile:
             for line in infile.readlines():
@@ -97,7 +97,11 @@ def test_models(path, allenbert, allenbilstm):
                 example = ' '.join(example[:-1]) + example[-1]
                 try:
                     allenbert_pred = allenbert.predict(example)['verbs'][0]['tags']
+                    if allenbert_pred == gold:
+                        allenbert_correct.append(allenbert_pred)
                     allenbilstm_pred = allenbilstm.predict(example)['verbs'][0]['tags']
+                    if allenbilstm_pred == gold:
+                        allenbilstm_correct.append(allenbilstm_pred)
                 except IndexError:
                     allenbert_pred = ['O'] * len(gold)
                     allenbilstm_pred = ['O'] * len(gold)
@@ -115,5 +119,11 @@ def test_models(path, allenbert, allenbilstm):
         allenbilstm_errors = get_nr_errors(y_test, allenbilstm_y_pred)
 
         print(f'allenBERT error rate for {filename}: {round(((allenbert_errors/len(y_test))*100), 1)}')
+        print(f'Number of allenBERT correct predictions for {filename}: {len(allenbert_correct)}')
         print(f'allenBiLSTM error rate for {filename}: {round(((allenbilstm_errors/len(y_test))*100), 1)}')
+        print(f'Number of allenBiLSTM correct predictions for {filename}: {len(allenbilstm_correct)}')
         print('-----------------------------')
+
+        
+ if __name__ == '__main__':
+    test_models(r'Data', allenbert, allenbilstm)
