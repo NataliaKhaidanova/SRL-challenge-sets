@@ -21,7 +21,7 @@ instrument_theme_examples = [['The', 'ball', 'broke', 'the', 'window', '.'],
                              ['The', 'knife', 'sliced', 'the', 'tomato', '.'], 
                              ['The', 'guitar', 'strummed', 'the', 'chords', '.']] 
 
-instrument_theme_labels = ['O','B-ARG2','O','O','B-ARG1','O']
+instrument_theme_labels = ['B-ARG2','I-ARG2','O','B-ARG1','I-ARG1','O']
 
 
 benefactive_examples = [['She', 'lent', 'her', 'friend', 'a', 'book', '.'],
@@ -34,7 +34,7 @@ benefactive_examples = [['She', 'lent', 'her', 'friend', 'a', 'book', '.'],
                         ['Mary', 'emailed', 'her', 'boss', 'a', 'note', '.'],
                         ['They', 'offered', 'their', 'guests', 'a', 'snack', '.']]
 
-benefactive_labels = ['B-ARG0','O','O','B-ARG2','O','B-ARG1','O']
+benefactive_labels = ['B-ARG0','O','B-ARG2','I-ARG2','B-ARG1','I-ARG1','O']
 
 
 passive_voice_examples = [['The', 'car', 'was', 'repaired', 'by', 'the', 'mechanic', '.'],
@@ -54,7 +54,7 @@ passive_voice_examples = [['The', 'car', 'was', 'repaired', 'by', 'the', 'mechan
                           ['The', 'meal', 'was', 'prepared', 'by', 'the', 'chef', '.'],
                           ['The', 'presentation', 'was', 'given', 'by', 'the', 'speaker', '.']]
 
-passive_voice_labels = ['O','B-ARG1','O','O','O','O','B-ARG0','O']
+passive_voice_labels = ['B-ARG1','I-ARG1','O','O','O','B-ARG0','I-ARG0','O']
 
 
 left_out_predicate_examples = [['John', 'likes', 'coffee', ',', 'and', 'Mary', 'tea', '.'],
@@ -84,7 +84,7 @@ left_out_theme_examples = [['John', 'enjoys', 'swimming', ',', 'and', 'so', 'doe
                            ['She', 'loves', 'danceing', ',', 'and', 'so', 'does', 'her', 'daughter', '.'],
                            ['He', 'enjoys', 'hiking', ',', 'and', 'so', 'does', 'his', 'girlfriend', '.']]
     
-left_out_theme_labels = ['B-ARG0','O','B-ARG1','O','O','O','O','O','B-ARG0','O']
+left_out_theme_labels = ['B-ARG0','O','B-ARG1','O','O','O','O','B-ARG0','I-ARG0','O']
 
 
 unmask = create_pipeline()
