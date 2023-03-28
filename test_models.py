@@ -75,15 +75,17 @@ def test_models(path, allenbert, allenbilstm):
     for filename in os.listdir(path):
         if filename.endswith('.json'):
         
-            y_test, allenbert_y_pred, allenbilstm_y_pred, allenbert_correct, allenbilstm_correct = [], [], [], [], []
+            y_test_1, y_test_2 = [], []
+            allenbert_y_pred, allenbilstm_y_pred, allenbert_correct, allenbilstm_correct = [], [], [], []
                 
             with open(f'{path}/{filename}') as infile:
                 for line in infile.readlines():
                     line = line.strip('\n')
                     example_info = json.loads(line)       
                     gold = example_info['BIO']
+                    y_test_2.append(gold)
                     for label in gold:
-                        y_test.append(label)
+                        y_test_1.append(label)
 
                     # allenBERT and allenBiLSTM  
                     example = example_info['example']
@@ -109,13 +111,13 @@ def test_models(path, allenbert, allenbilstm):
 
                     save_pred_to_json(example, gold, allenbert_pred, allenbilstm_pred, f'Output/pred_{filename}')
 
-            allenbert_errors = get_nr_errors(y_test, allenbert_y_pred)
-            allenbilstm_errors = get_nr_errors(y_test, allenbilstm_y_pred)
+            allenbert_errors = get_nr_errors(y_test_1, allenbert_y_pred)
+            allenbilstm_errors = get_nr_errors(y_test_1, allenbilstm_y_pred)
 
-            print(f'allenBERT failure rate for {filename}: {round(((allenbert_errors/len(y_test))*100), 1)}')
-            print(f'Number of allenBERT fully correct predictions for {filename}: {len(allenbert_correct)} out of {len(y_test)}')
-            print(f'allenBiLSTM failure rate for {filename}: {round(((allenbilstm_errors/len(y_test))*100), 1)}')
-            print(f'Number of allenBiLSTM fully correct predictions for {filename}: {len(allenbilstm_correct)} out of {len(y_test)}')
+            print(f'allenBERT failure rate for {filename}: {round(((allenbert_errors/len(y_test_1))*100), 1)}')
+            print(f'Number of allenBERT fully correct predictions for {filename}: {len(allenbert_correct)} out of {len(y_test_2)}')
+            print(f'allenBiLSTM failure rate for {filename}: {round(((allenbilstm_errors/len(y_test_1))*100), 1)}')
+            print(f'Number of allenBiLSTM fully correct predictions for {filename}: {len(allenbilstm_correct)} out of {len(y_test_2)}')
             print('-----------------------------')
 
         
