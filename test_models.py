@@ -8,13 +8,13 @@ allenbert = Predictor.from_path('https://storage.googleapis.com/allennlp-public-
 allenbilstm = Predictor.from_path('https://storage.googleapis.com/allennlp-public-models/openie-model.2020.03.26.tar.gz')
 
 
-def clean_gold_labels(filename, gold):
+def adapt_gold_labels(filename, gold):
     """
     Adapt gold labels for allenBERT and allenBiLSTM.
     
     :param str filename: name of .json file
     :param list gold: gold labels for one example
-    :return: list of atapted gold labels for one example 
+    :return list: atapted gold labels for one example 
     """
     for index, label in enumerate(gold):
         if filename not in ['Left-out Theme.json', 'Left-out predicate.json']:
@@ -39,7 +39,7 @@ def clean_pred_labels(gold, pred):
     
     :param list gold: gold labels for one example
     :param list pred: predicted labels for one example
-    :return: list of atapted predicted labels for one example 
+    :return list: clean predicted labels for one example 
     """
     
     pred_clean = []
@@ -50,13 +50,34 @@ def clean_pred_labels(gold, pred):
             pred_clean.append(pred[i])
 
     return pred_clean
+
+
+def save_pred_to_json(example, gold, adapted_gold, allenbert_pred, allenbilastm_pred, outputfile):
+    """
+    Save examples and gold labels in .json.
+    
+    :param list examples: lists of example tokens
+    :param list gold: gold labels for one example 
+    :param list adapted_gold: adapted gold labels for one example (output of adapt_gold_labels)
+    :param list allenbert_pred: allenBERT predictions for one example 
+    :param list allenbert_pred: allenBiLSTM predictions for one example 
+    :param str outputfile: path to output .json file
+    :return: None
+    """
+    output_dict = {'example':example,                
+                   'BIO':adapted_gold, 
+                   'allenBERT_pred':allenbert_pred,
+                   'allenBiLSTM_pred':allenbilastm_pred}
+    with open(outputfile, 'a') as outfile:
+        json.dump(output_dict, outfile)
+        outfile.write('\n')
   
   
 def get_nr_errors(y_test, y_pred):
     """
     :param list y_test: gold labels for one file
     :param list y_pred: predicted labels for one file
-    :return: number of incorrect predictions  
+    :return int: number of incorrect predictions  
     """
     errors = []
     for gold, pred in zip(y_test, y_pred):
@@ -88,8 +109,8 @@ def test_models(path, allenbert, allenbilstm):
                 example_info = json.loads(line)
                 # get gold labels 
                 gold = example_info['BIO']
-                gold = clean_gold_labels(filename, gold) 
-                for label in gold:
+                adapted_gold = adapt_gold_labels(filename, gold) 
+                for label in adapted_gold:
                     y_test.append(label)
                     
                 # allenBERT and allenBiLSTM  
@@ -97,23 +118,23 @@ def test_models(path, allenbert, allenbilstm):
                 example = ' '.join(example[:-1]) + example[-1]
                 try:
                     allenbert_pred = allenbert.predict(example)['verbs'][0]['tags']
-                    if allenbert_pred == gold:
+                    if allenbert_pred == adapted_gold:
                         allenbert_correct.append(allenbert_pred)
                     allenbilstm_pred = allenbilstm.predict(example)['verbs'][0]['tags']
-                    if allenbilstm_pred == gold:
+                    if allenbilstm_pred == adapted_gold:
                         allenbilstm_correct.append(allenbilstm_pred)
                 except IndexError:
-                    allenbert_pred = ['O'] * len(gold)
-                    allenbilstm_pred = ['O'] * len(gold)
+                    allenbert_pred = ['O'] * len(adapted_gold)
+                    allenbilstm_pred = ['O'] * len(adapted_gold)
                 
-                allenbert_pred = clean_pred_labels(gold, allenbert_pred)  
-                allenbilstm_pred = clean_pred_labels(gold, allenbilstm_pred) 
+                allenbert_pred = clean_pred_labels(adapted_gold, allenbert_pred)  
+                allenbilstm_pred = clean_pred_labels(adapted_gold, allenbilstm_pred) 
         
                 for allenbert_label, allenbilstm_label in zip(allenbert_pred, allenbilstm_pred):
                     allenbert_y_pred.append(allenbert_label)
                     allenbilstm_y_pred.append(allenbilstm_label)
                     
-                #save_pred_to_json(example, gold, pred, f'pred_{file}')
+                save_pred_to_json(example, adapted_gold, allenbert_pred, allenbilstm_pred, f'Output/pred_{filename}')
     
         allenbert_errors = get_nr_errors(y_test, allenbert_y_pred)
         allenbilstm_errors = get_nr_errors(y_test, allenbilstm_y_pred)
