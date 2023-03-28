@@ -24,3 +24,7 @@ Note! The files are saved to the Output folder. So make sure you have it, otherw
 - Data folder contains .json test files that are outputs of the code defined in save_munual_examples.py and extend_some_examples.py. 
 
 - Output folder contains .json test files with the predictions of the pretrained structured-prediction-srl-bert and structured-prediction-srl models.
+
+If you want to replicate the results, run test_models.py. 
+
+If you want to test the code, delete all files in the Data and Output folders, then run save_munual_examples.py, extend_some_examples.py, and test_models.py in the specified order. Note! The results will not to replicated as some .json test files in the Data folder were manually reduced before running test_models.py.  
