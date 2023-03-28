@@ -93,62 +93,62 @@ if __name__ == '__main__':
     ### Instrument+Theme:   
     print('Extending Instrument+Theme examples ...')
     # save unmodified examples in .json
-    save_to_json(instrument_theme_examples, instrument_theme_labels, 'Instrument+Theme.json')
+    save_to_json(instrument_theme_examples, instrument_theme_labels, 'Data/Instrument+Theme.json')
     # mask the 3rd token, extend examples 
     instrument_theme_generated_examples = generate_examples(instrument_theme_generated_examples_first_iter, unmask, 2)
     # append new generated examples to .json 
-    save_to_json(instrument_theme_generated_examples, instrument_theme_labels, 'Instrument+Theme.json')
+    save_to_json(instrument_theme_generated_examples, instrument_theme_labels, 'Data/Instrument+Theme.json')
     # clean examples from the ones that duplicate human examples 
-    instrument_theme_clean_examples = delete_duplicates('Instrument+Theme.json')
+    instrument_theme_clean_examples = delete_duplicates('Data/Instrument+Theme.json')
     # delete the old .json file
-    os.remove('Instrument+Theme.json')
+    os.remove('Data/Instrument+Theme.json')
     # get clean .json file 
-    save_to_json(instrument_theme_clean_examples, instrument_theme_labels, 'Instrument+Theme.json')
+    save_to_json(instrument_theme_clean_examples, instrument_theme_labels, 'Data/Instrument+Theme.json')
     print('Instrument+Theme.json is saved')
                            
     ### Benefactive:
     print('Extending benefactive examples ...')
-    save_to_json(benefactive_examples, benefactive_labels, 'Benefactive.json')
+    save_to_json(benefactive_examples, benefactive_labels, 'Data/Benefactive.json')
     # mask the 2nd and 6th token
     benefactive_generated_examples_first_iter = generate_examples(benefactive_examples, unmask, 5)
     benefactive_generated_examples_second_iter = generate_examples(benefactive_generated_examples_first_iter, unmask, 1)
-    save_to_json(benefactive_generated_examples_second_iter, benefactive_labels, 'Benefactive.json')
-    benefactive_clean_examples = delete_duplicates('Benefactive.json')
-    os.remove('Benefactive.json')
-    save_to_json(benefactive_clean_examples, benefactive_labels, 'Benefactive.json')
+    save_to_json(benefactive_generated_examples_second_iter, benefactive_labels, 'Data/Benefactive.json')
+    benefactive_clean_examples = delete_duplicates('Data/Benefactive.json')
+    os.remove('Data/Benefactive.json')
+    save_to_json(benefactive_clean_examples, benefactive_labels, 'Data/Benefactive.json')
     print('Benefactive.json is saved')
     
     ### Passive voice:
     print('Extending passive voice examples ...')
-    save_to_json(passive_voice_examples, passive_voice_labels, 'Passive voice.json')
+    save_to_json(passive_voice_examples, passive_voice_labels, 'Data/Passive voice.json')
     # mask the 2nd and 4th token
     passive_voice_generated_examples_first_iter = generate_examples(passive_voice_examples, unmask, 1)
     passive_voice_generated_examples_second_iter = generate_examples(passive_voice_generated_examples_first_iter, unmask, 3)
-    save_to_json(passive_voice_generated_examples_second_iter, passive_voice_labels, 'Passive voice.json')
-    passive_voice_clean_examples = delete_duplicates('Passive voice.json')
-    os.remove('Passive voice.json')
-    save_to_json(passive_voice_clean_examples, passive_voice_labels, 'Passive voice.json')
+    save_to_json(passive_voice_generated_examples_second_iter, passive_voice_labels, 'Data/Passive voice.json')
+    passive_voice_clean_examples = delete_duplicates('Data/Passive voice.json')
+    os.remove('Data/Passive voice.json')
+    save_to_json(passive_voice_clean_examples, passive_voice_labels, 'Data/Passive voice.json')
     print('Passive voice.json is saved')
     
     ### Left-out predicate:
     print('Extending left-out predicate examples ...')
-    save_to_json(left_out_predicate_examples, left_out_predicate_labels, 'Left-out predicate.json')
+    save_to_json(left_out_predicate_examples, left_out_predicate_labels, 'Data/Left-out predicate.json')
     # mask the 2nd token
     left_out_predicate_generated_examples = generate_examples(left_out_predicate_examples, unmask, 1)
-    save_to_json(left_out_predicate_generated_examples, left_out_predicate_labels, 'Left-out predicate.json')
-    left_out_predicate_clean_examples = delete_duplicates('Left-out predicate.json')
-    os.remove('Left-out predicate.json')
-    save_to_json(left_out_verb_clean_examples, left_out_verb_labels, 'Left-out predicate.json')
+    save_to_json(left_out_predicate_generated_examples, left_out_predicate_labels, 'Data/Left-out predicate.json')
+    left_out_predicate_clean_examples = delete_duplicates('Data/Left-out predicate.json')
+    os.remove('Data/Left-out predicate.json')
+    save_to_json(left_out_verb_clean_examples, left_out_verb_labels, 'Data/Left-out predicate.json')
     print('Left-out predicate.json is saved')
     
     ### Left-out Theme:
     print('Extending left-out Theme examples ...')
-    save_to_json(left_out_theme_examples, left_out_theme_labels, 'Left-out Theme.json')
+    save_to_json(left_out_theme_examples, left_out_theme_labels, 'Data/Left-out Theme.json')
     # mask the 2nd and 3rd token
     left_out_theme_generated_examples_first_iter = generate_examples(left_out_theme_examples, unmask, 2)
     left_out_theme_generated_examples_second_iter = generate_examples(left_out_theme_generated_examples_first_iter, unmask, 1)
-    save_to_json(left_out_theme_generated_examples_second_iter, left_out_theme_labels, 'Left-out Theme.json')
-    left_out_theme_clean_examples = delete_duplicates('Left-out Theme.json')
-    os.remove('Left-out Theme.json')
-    save_to_json(left_out_theme_clean_examples, left_out_theme_labels, 'Left-out Theme.json')
+    save_to_json(left_out_theme_generated_examples_second_iter, left_out_theme_labels, 'Data/Left-out Theme.json')
+    left_out_theme_clean_examples = delete_duplicates('Data/Left-out Theme.json')
+    os.remove('Data/Left-out Theme.json')
+    save_to_json(left_out_theme_clean_examples, left_out_theme_labels, 'Data/Left-out Theme.json')
     print('Left-out Theme.json is saved')
