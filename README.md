@@ -13,7 +13,7 @@ Instrument+Theme.json,
 Benefactive.json,
 Passive voice.json,
 Left-out predicate.json, and
-Left-out Theme.json,
+Left-out Theme.json.
 Note! The files are saved to the Data folder. So make sure you have it, otherwise you need to adapt the code. 
 
 - utils.py contains the code necessary to run save_munual_examples.py and extend_some_examples.py.
