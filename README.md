@@ -20,3 +20,7 @@ Note! The files are saved to the Data folder. So make sure you have it, otherwis
 
 - test_models.py contains the code for evaluating the pretrained structured-prediction-srl-bert and structured-prediction-srl models on the defined .json test files. The output is the failure rate of each model for each .json test file, the number of fully correct predictions per .json test file. The test instances, gold labels, and predictions of each model are saved as new .json files. 
 Note! The files are saved to the Output folder. So make sure you have it, otherwise you need to adapt the code. 
+
+- Data folder contains .json test files that are outputs of the code defined in save_munual_examples.py and extend_some_examples.py. 
+
+- Output folder contains .json test files with the predictions of the pretrained structured-prediction-srl-bert and structured-prediction-srl models.
