@@ -79,8 +79,7 @@ left_out_theme_examples = [['John', 'enjoys', 'swimming', ',', 'and', 'so', 'doe
                            ['Jane', 'loves', 'books', ',', 'and', 'so', 'does', 'her', 'sister', '.'],
                            ['They', 'prefer', 'tea', ',', 'and', 'so', 'do', 'their', 'parents', '.'],
                            ['She', 'hates', 'cold', ',', 'and', 'so', 'does', 'her', 'boyfriend', '.'],
-                           ['He', 'enjoys', 'games', ',', 'and', 'so', 'do', 'his', 'friends', '.'],
-                           ['The', 'car', 'needs', 'tires', ',', 'and', 'so', 'does', 'the', 'truck', '.'],
+                           ['He', 'enjoys', 'games', ',', 'and', 'so', 'do', 'his', 'friends', '.'],           
                            ['She', 'loves', 'danceing', ',', 'and', 'so', 'does', 'her', 'daughter', '.'],
                            ['He', 'enjoys', 'hiking', ',', 'and', 'so', 'does', 'his', 'girlfriend', '.']]
     
