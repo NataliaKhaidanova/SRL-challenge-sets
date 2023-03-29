@@ -125,4 +125,4 @@ if __name__ == '__main__':
             with open('Data/ARG1 idioms.json', 'a') as outfile:
                 json.dump(ARG1_output_dict, outfile)
                 outfile.write('\n')
-        print('B-ARG1 idioms.json is saved')
+        print('ARG1 idioms.json is saved')
