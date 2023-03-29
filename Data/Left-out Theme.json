@@ -5,7 +5,6 @@
 {"example": ["They", "prefer", "tea", ",", "and", "so", "do", "their", "parents", "."], "BIO": ["B-ARG0", "O", "B-ARG1", "O", "O", "O", "O", "B-ARG0", "I-ARG0", "O"]}
 {"example": ["She", "hates", "cold", ",", "and", "so", "does", "her", "boyfriend", "."], "BIO": ["B-ARG0", "O", "B-ARG1", "O", "O", "O", "O", "B-ARG0", "I-ARG0", "O"]}
 {"example": ["He", "enjoys", "games", ",", "and", "so", "do", "his", "friends", "."], "BIO": ["B-ARG0", "O", "B-ARG1", "O", "O", "O", "O", "B-ARG0", "I-ARG0", "O"]}
-{"example": ["The", "car", "needs", "tires", ",", "and", "so", "does", "the", "truck", "."], "BIO": ["B-ARG0", "O", "B-ARG1", "O", "O", "O", "O", "B-ARG0", "I-ARG0", "O"]}
 {"example": ["She", "loves", "danceing", ",", "and", "so", "does", "her", "daughter", "."], "BIO": ["B-ARG0", "O", "B-ARG1", "O", "O", "O", "O", "B-ARG0", "I-ARG0", "O"]}
 {"example": ["He", "enjoys", "hiking", ",", "and", "so", "does", "his", "girlfriend", "."], "BIO": ["B-ARG0", "O", "B-ARG1", "O", "O", "O", "O", "B-ARG0", "I-ARG0", "O"]}
 {"example": ["John", "loves", "reading", ",", "and", "so", "does", "his", "brother", "."], "BIO": ["B-ARG0", "O", "B-ARG1", "O", "O", "O", "O", "B-ARG0", "I-ARG0", "O"]}
@@ -152,12 +151,6 @@
 {"example": ["He", "enjoys", "gardening", ",", "and", "so", "do", "his", "friends", "."], "BIO": ["B-ARG0", "O", "B-ARG1", "O", "O", "O", "O", "B-ARG0", "I-ARG0", "O"]}
 {"example": ["He", "likes", "gardening", ",", "and", "so", "do", "his", "friends", "."], "BIO": ["B-ARG0", "O", "B-ARG1", "O", "O", "O", "O", "B-ARG0", "I-ARG0", "O"]}
 {"example": ["He", "hates", "gardening", ",", "and", "so", "do", "his", "friends", "."], "BIO": ["B-ARG0", "O", "B-ARG1", "O", "O", "O", "O", "B-ARG0", "I-ARG0", "O"]}
-{"example": ["The", "car", "wears", "tires", ",", "and", "so", "does", "the", "truck", "."], "BIO": ["B-ARG0", "O", "B-ARG1", "O", "O", "O", "O", "B-ARG0", "I-ARG0", "O"]}
-{"example": ["The", "Jeep", "wears", "tires", ",", "and", "so", "does", "the", "truck", "."], "BIO": ["B-ARG0", "O", "B-ARG1", "O", "O", "O", "O", "B-ARG0", "I-ARG0", "O"]}
-{"example": ["The", "Mustang", "wears", "tires", ",", "and", "so", "does", "the", "truck", "."], "BIO": ["B-ARG0", "O", "B-ARG1", "O", "O", "O", "O", "B-ARG0", "I-ARG0", "O"]}
-{"example": ["The", "car", "loses", "tires", ",", "and", "so", "does", "the", "truck", "."], "BIO": ["B-ARG0", "O", "B-ARG1", "O", "O", "O", "O", "B-ARG0", "I-ARG0", "O"]}
-{"example": ["The", "Jeep", "loses", "tires", ",", "and", "so", "does", "the", "truck", "."], "BIO": ["B-ARG0", "O", "B-ARG1", "O", "O", "O", "O", "B-ARG0", "I-ARG0", "O"]}
-{"example": ["The", "tractor", "loses", "tires", ",", "and", "so", "does", "the", "truck", "."], "BIO": ["B-ARG0", "O", "B-ARG1", "O", "O", "O", "O", "B-ARG0", "I-ARG0", "O"]}
 {"example": ["She", "loves", "cats", ",", "and", "so", "does", "her", "daughter", "."], "BIO": ["B-ARG0", "O", "B-ARG1", "O", "O", "O", "O", "B-ARG0", "I-ARG0", "O"]}
 {"example": ["She", "likes", "cats", ",", "and", "so", "does", "her", "daughter", "."], "BIO": ["B-ARG0", "O", "B-ARG1", "O", "O", "O", "O", "B-ARG0", "I-ARG0", "O"]}
 {"example": ["She", "hates", "cats", ",", "and", "so", "does", "her", "daughter", "."], "BIO": ["B-ARG0", "O", "B-ARG1", "O", "O", "O", "O", "B-ARG0", "I-ARG0", "O"]}
