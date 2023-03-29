@@ -87,10 +87,10 @@ def test_models(path, allenbert, allenbilstm):
 
                     # allenBERT and allenBiLSTM  
                     example = example_info['example']
-                    example = ' '.join(example[:-1]) + example[-1]
+                    example_untokenized = ' '.join(example[:-1]) + example[-1]
                     try:
-                        allenbert_pred = allenbert.predict(example)['verbs'][0]['tags']
-                        allenbilstm_pred = allenbilstm.predict(example)['verbs'][0]['tags']
+                        allenbert_pred = allenbert.predict(example_untokenized)['verbs'][0]['tags']
+                        allenbilstm_pred = allenbilstm.predict(example_untokenized)['verbs'][0]['tags']
                     except IndexError:
                         allenbert_pred = ['O'] * len(gold)
                         allenbilstm_pred = ['O'] * len(gold)
