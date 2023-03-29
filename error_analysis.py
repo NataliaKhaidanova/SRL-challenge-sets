@@ -91,40 +91,41 @@ def get_mistakes_in_Passive_voice(path):
     :return: None
     """
     for filename in os.listdir(path):
-      if filename == 'pred_Passive voice.json':
+        if filename == 'pred_Passive voice.json':
 
-          allenbert_examples, allenbert_preds, allenbilstm_examples, allenbilstm_preds = [], [], [], []
-          with open(f'{path}/{filename}') as infile:
-              for line in infile.readlines():
-                  line = line.strip('\n')
-                  example_info = json.loads(line) 
-                  example = example_info['example']
-                  example = ' '.join(example[:-1]) + example[-1]
-                  gold = example_info['BIO']
-                  allenbert_pred = example_info['allenBERT_pred']
-                  allenbilstm_pred = example_info['allenBiLSTM_pred']
+            allenbert_examples, allenbert_preds, allenbilstm_examples, allenbilstm_preds = [], [], [], []
+            
+            with open(f'{path}/{filename}') as infile:
+                for line in infile.readlines():
+                    line = line.strip('\n')
+                    example_info = json.loads(line) 
+                    example = example_info['example']
+                    example = ' '.join(example[:-1]) + example[-1]
+                    gold = example_info['BIO']
+                    allenbert_pred = example_info['allenBERT_pred']
+                    allenbilstm_pred = example_info['allenBiLSTM_pred']
 
-                  if allenbert_pred != ["O", "O", "O", "O", "O", "O", "O", "O"]:
-                      allenbert_examples.append(example)
-                      allenbert_preds.append(allenbert_pred)
-                  if allenbilstm_pred != ["O", "O", "O", "O", "O", "O", "O", "O"]:
-                      allenbilstm_examples.append(example)
-                      allenbilstm_preds.append(allenbilstm_pred)
+                    if allenbert_pred != ["O", "O", "O", "O", "O", "O", "O", "O"]:
+                        allenbert_examples.append(example)
+                        allenbert_preds.append(allenbert_pred)
+                    if allenbilstm_pred != ["O", "O", "O", "O", "O", "O", "O", "O"]:
+                        allenbilstm_examples.append(example)
+                        allenbilstm_preds.append(allenbilstm_pred)
 
-          print(f'allenBERT nonzero predictions for {filename}:')            
-          for example, pred in zip(allenbert_examples, allenbert_preds):
-              print(example) 
-              print(pred)
-              print('-----------------------------')
-          print('=============================')
-          print(f'allenBiLSTM nonzero predictions for {filename}:')   
-          for example, pred in zip(allenbilstm_examples, allenbilstm_preds):
-              print(example) 
-              print(pred)
-              print('-----------------------------')  
+            print(f'allenBERT nonzero predictions for {filename}:')            
+            for example, pred in zip(allenbert_examples, allenbert_preds):
+                print(example) 
+                print(pred)
+                print('-----------------------------')
+            print('=============================')
+            print(f'allenBiLSTM nonzero predictions for {filename}:')   
+            for example, pred in zip(allenbilstm_examples, allenbilstm_preds):
+                print(example) 
+                print(pred)
+                print('-----------------------------')  
+
               
-              
- if __name__ == '__main__':
+if __name__ == '__main__':
     path = r'Output'
     get_correct_predictions(path)
     print('=============================')
