@@ -1,5 +1,6 @@
 import json
 import os
+from collections import defaultdict
 
 
 def get_correct_predictions(path):
@@ -52,7 +53,8 @@ def get_mistakes_in_Benefactive(path):
         if filename == 'pred_Benefactive.json':
 
             allenbert_examples, allenbert_incorrect_pred, allenbilstm_examples, allenbilstm_incorrect_pred = [], [], [], []
-
+            allenbert_verbs, allenbilstm_verbs = [], []
+            
             with open(f'{path}/{filename}') as infile:
                 for line in infile.readlines():
                     line = line.strip('\n')
@@ -66,17 +68,32 @@ def get_mistakes_in_Benefactive(path):
                     if allenbert_pred != gold:
                         allenbert_examples.append(example)
                         allenbert_incorrect_pred.append(allenbert_pred)
+                        allenbert_verbs.append(example[1])
                     if allenbilstm_pred != gold:
                         allenbilstm_examples.append(example)
                         allenbilstm_incorrect_pred.append(allenbilstm_pred)
+                        allenbilstm_verbs.append(example[1])
 
             print(f'allenBERT mistakes in {filename}:')
+            
+            count_dict_allenbert = defaultdict(int)
+            for item in allenbert_verbs:
+                count_dict_allenbert[item] += 1
+            print(f'Predicates difficult for allenBERT: {count_dict_allenbert}')
+            
             for example, pred in zip(allenbert_examples, allenbert_incorrect_pred):
                 print(example) 
                 print(pred)
                 print('-----------------------------')
             print('=============================')
+            
             print(f'allenBiLSTM mistakes in {filename}:')
+            
+            count_dict_allenbilstm = defaultdict(int)
+            for item in allenbilstm_verbs:
+                count_dict_allenbilstm[item] += 1
+            print(f'Predicates difficult for allenBiLSTM: {count_dict_allenbilstm}')
+            
             for example, pred in zip(allenbilstm_examples, allenbilstm_incorrect_pred):
                 print(example) 
                 print(pred)
