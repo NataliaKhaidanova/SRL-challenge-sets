@@ -25,7 +25,7 @@ polysemy_examples = [['I', 'saw', 'a', 'kid', 'with', 'a', 'cat', '.'],
                      ['He', 'saw', 'a', 'man', 'with', 'binoculars', '.']]             
                                          
 polysemy_labels = [['B-ARG0', 'O', 'B-ARG1', 'I-ARG1', 'I-ARG1', 'I-ARG1', 'I-ARG1', 'O'],
-                   ['B-ARG0', 'O', 'B-ARG1', 'I-ARG1', 'B-ARGM-MNR', 'I-ARGM-MNR', 'O']]
+                   ['B-ARG0', 'O', 'B-ARG1', 'I-ARG1', 'O', 'B-ARG2', 'O']]
 
 
 idioms_examples = [['She', 'kicked', 'the', 'bucket', '.'], # to die 1
