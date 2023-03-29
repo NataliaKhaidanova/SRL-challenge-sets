@@ -112,17 +112,17 @@ if __name__ == '__main__':
     print('Polysemy.json is saved')
     # Save idioms 
     for i in range(len(idioms_examples)):
-        # Save B-ARG0 idioms 
+        # Save ARG0 idioms 
         if idioms_labels[i][0] == 'B-ARG0':
-            B_ARG0_output_dict = {'example': idioms_examples[i], 'BIO': idioms_labels[i]}
-            with open('Data/B-ARG0 idioms.json', 'a') as outfile:
-                json.dump(B_ARG0_output_dict, outfile)
+            ARG0_output_dict = {'example': idioms_examples[i], 'BIO': idioms_labels[i]}
+            with open('Data/ARG0 idioms.json', 'a') as outfile:
+                json.dump(ARG0_output_dict, outfile)
                 outfile.write('\n')
         print('B-ARG0 idioms.json is saved')
-        # Save B-ARG1 idioms 
+        # Save ARG1 idioms 
         else:
-            B_ARG1_output_dict = {'example': idioms_examples[i], 'BIO': idioms_labels[i]}
-            with open('Data/B-ARG1 idioms.json', 'a') as outfile:
-                json.dump(B_ARG1_output_dict, outfile)
+            ARG1_output_dict = {'example': idioms_examples[i], 'BIO': idioms_labels[i]}
+            with open('Data/ARG1 idioms.json', 'a') as outfile:
+                json.dump(ARG1_output_dict, outfile)
                 outfile.write('\n')
         print('B-ARG1 idioms.json is saved')
