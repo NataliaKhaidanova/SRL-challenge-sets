@@ -29,4 +29,4 @@ Note! The files are saved to the Output folder. So make sure you have it, otherw
 
 If you want to replicate the results, run test_models.py. 
 
-If you want to test the code, delete all files in the Data and Output folders, then run save_munual_examples.py, extend_some_examples.py, test_models.py, and error_analysis.py in the specified order. Note! The results will not to replicated as some .json test files in the Data folder were manually reduced before running test_models.py.  
+If you want to test the code, delete all files in the Data and Output folders, then run save_munual_examples.py, extend_some_examples.py, test_models.py, and error_analysis.py in the specified order. Note! The results will not be replicated as some .json test files in the Data folder were manually reduced before running test_models.py.  
