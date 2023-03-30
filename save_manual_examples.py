@@ -118,11 +118,11 @@ if __name__ == '__main__':
             with open('Data/ARG0 idioms.json', 'a') as outfile:
                 json.dump(ARG0_output_dict, outfile)
                 outfile.write('\n')
-        print('B-ARG0 idioms.json is saved')
         # Save ARG1 idioms 
         else:
             ARG1_output_dict = {'example': idioms_examples[i], 'BIO': idioms_labels[i]}
             with open('Data/ARG1 idioms.json', 'a') as outfile:
                 json.dump(ARG1_output_dict, outfile)
                 outfile.write('\n')
-        print('ARG1 idioms.json is saved')
+    print('ARG0 idioms.json is saved')
+    print('ARG1 idioms.json is saved')
