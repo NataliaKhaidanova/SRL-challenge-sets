@@ -94,7 +94,7 @@ if __name__ == '__main__':
     # save unmodified examples in .json
     save_to_json(instrument_theme_examples, instrument_theme_labels, 'Data/Instrument+Theme.json')
     # mask the 3rd token, extend examples 
-    instrument_theme_generated_examples = generate_examples(instrument_theme_generated_examples_first_iter, unmask, 2)
+    instrument_theme_generated_examples = generate_examples(instrument_theme_examples, unmask, 2)
     # append new generated examples to .json 
     save_to_json(instrument_theme_generated_examples, instrument_theme_labels, 'Data/Instrument+Theme.json')
     # clean examples from the ones that duplicate human examples 
