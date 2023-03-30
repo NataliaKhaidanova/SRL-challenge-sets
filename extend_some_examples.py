@@ -137,7 +137,7 @@ if __name__ == '__main__':
     save_to_json(left_out_predicate_generated_examples, left_out_predicate_labels, 'Data/Left-out predicate.json')
     left_out_predicate_clean_examples = delete_duplicates('Data/Left-out predicate.json')
     os.remove('Data/Left-out predicate.json')
-    save_to_json(left_out_verb_clean_examples, left_out_verb_labels, 'Data/Left-out predicate.json')
+    save_to_json(left_out_predicate_clean_examples, left_out_predicate_labels, 'Data/Left-out predicate.json')
     print('Left-out predicate.json is saved')
     
     ### Left-out Theme:
